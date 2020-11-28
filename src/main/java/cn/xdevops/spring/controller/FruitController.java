@@ -39,6 +39,6 @@ public class FruitController {
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable("id") Long id) {
-        return iFruitService.deleteById(id);
+        iFruitService.deleteById(id);
     }
 }
