@@ -13,11 +13,7 @@ import java.util.List;
 public class FruitController {
 
     @Autowired
-    private final FruitService fruitService;
-
-    public FruitController(FruitService fruitService) {
-        this.fruitService = fruitService;
-    }
+    private FruitService fruitService;
 
     @GetMapping
     public List<FruitDto> getAll() {
