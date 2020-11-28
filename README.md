@@ -205,7 +205,7 @@ jdbc:h2:file:~/h2data/localdb;Mode=MySQL;DB_CLOSE_ON_EXIT=FALSE
 
 ### 编写代码
 
-参见[spring-db-demo](<https://github.com/cookcodeblog/spring-db-demo>) 编写Entity、Repository和Controller。
+参见[spring-db-demo](<https://github.com/cookcodeblog/spring-db-demo>) 编写代码。
 
 
 
