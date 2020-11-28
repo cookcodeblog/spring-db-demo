@@ -1,5 +1,5 @@
 -- Create table
-drop table fruit if exists;
+drop table if exists fruit;
 create table fruit (
   id BIGINT AUTO_INCREMENT  PRIMARY KEY,
   name VARCHAR(255) NOT NULL
