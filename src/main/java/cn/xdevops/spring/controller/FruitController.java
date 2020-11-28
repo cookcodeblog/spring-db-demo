@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @RestController
 @RequestMapping("/api/fruits")
 public class FruitController {
@@ -38,6 +39,6 @@ public class FruitController {
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable("id") Long id) {
-
+        return iFruitService.deleteById(id);
     }
 }
