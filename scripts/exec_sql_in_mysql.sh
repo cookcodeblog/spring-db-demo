@@ -10,11 +10,19 @@ sql_file="$4"
 
 sql_file_name=$(basename "${sql_file}")
 
-mpod=$(oc get pods --selector name=mysql --output name | awk -F/ '{print $NF}')
+function pod() {
+  local selector="$1"
+  local query='?(@.status.phase=="Running")'
+  oc get pods --selector $selector -o jsonpath="{.items[$query].metadata.name}";
+}
+
+mpod=$(pod "deploymentconfig=mysql")
 
 echo "Database Pod: ${mpod}"
 
 echo "Copy ${sql_file_name} into pod..."
+# Or use `oc rsync` command
+# See also: https://learn.openshift.com/introduction/transferring-files/
 oc cp "${sql_file}" "${mpod}:/tmp/${sql_file_name}"
 
 echo "Execute ${sql_file_name} in database..."
