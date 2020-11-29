@@ -1,17 +1,17 @@
 package cn.xdevops.spring.service;
 
-import cn.xdevops.spring.dto.FruitDto;
+import cn.xdevops.spring.vo.FruitVo;
 
 import java.util.List;
 
 public interface FruitService {
-    List<FruitDto> fruitList();
+    List<FruitVo> fruitList();
 
-    FruitDto save(FruitDto fruitDto);
+    FruitVo save(FruitVo fruitVo);
 
-    FruitDto findById(Long id);
+    FruitVo findById(Long id);
 
-    FruitDto updateFruit(long id, FruitDto fruitDto);
+    FruitVo updateFruit(long id, FruitVo fruitVo);
 
     void deleteById(Long id);
 }

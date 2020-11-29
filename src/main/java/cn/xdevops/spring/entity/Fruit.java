@@ -1,4 +1,4 @@
-package cn.xdevops.spring.entiy;
+package cn.xdevops.spring.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

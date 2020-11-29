@@ -1,6 +1,6 @@
-package cn.xdevops.spring.dto;
+package cn.xdevops.spring.vo;
 
-import cn.xdevops.spring.entiy.Fruit;
+import cn.xdevops.spring.entity.Fruit;
 import org.junit.Before;
 import org.junit.Test;
 import org.modelmapper.ModelMapper;
@@ -19,7 +19,7 @@ import static org.assertj.core.api.Assertions.tuple;
  * https://github.com/jmnarloch/modelmapper-spring-boot-starter
  * http://modelmapper.org/getting-started/
  */
-public class FruitDtoTest {
+public class FruitVoTest {
 
     private ModelMapper modelMapper;
 
@@ -30,7 +30,7 @@ public class FruitDtoTest {
 
     @Test
     public void test_convert_dto_to_entity() {
-        FruitDto dto = new FruitDto(1L, "Apple");
+        FruitVo dto = new FruitVo(1L, "Apple");
         Fruit entity = modelMapper.map(dto, Fruit.class);
         assertThat(entity).extracting(Fruit::getId, Fruit::getName).containsExactly(dto.getId(), dto.getName());
     }
@@ -38,8 +38,8 @@ public class FruitDtoTest {
     @Test
     public void test_convert_entity_to_dto() {
         Fruit entity = new Fruit(1L, "Apple");
-        FruitDto dto = modelMapper.map(entity, FruitDto.class);
-        assertThat(dto).extracting(FruitDto::getId, FruitDto::getName).containsExactly(entity.getId(), entity.getName());
+        FruitVo dto = modelMapper.map(entity, FruitVo.class);
+        assertThat(dto).extracting(FruitVo::getId, FruitVo::getName).containsExactly(entity.getId(), entity.getName());
     }
 
     @Test
@@ -48,8 +48,8 @@ public class FruitDtoTest {
                 new Fruit(2L, "Banana"),
                 new Fruit(3L, "Cherry"));
 
-        List<FruitDto> dtoList = entityList.stream().map(x -> modelMapper.map(x, FruitDto.class)).collect(Collectors.toList());
-        assertThat(dtoList).extracting(FruitDto::getId, FruitDto::getName)
+        List<FruitVo> dtoList = entityList.stream().map(x -> modelMapper.map(x, FruitVo.class)).collect(Collectors.toList());
+        assertThat(dtoList).extracting(FruitVo::getId, FruitVo::getName)
                 .containsExactly(tuple(1L, "Apple"),
                         tuple(2L, "Banana"),
                         tuple(3L, "Cherry"));

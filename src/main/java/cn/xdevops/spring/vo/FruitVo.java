@@ -1,4 +1,4 @@
-package cn.xdevops.spring.dto;
+package cn.xdevops.spring.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class FruitDto implements Serializable {
+public class FruitVo implements Serializable {
     private Long id;
     private String name;
 }

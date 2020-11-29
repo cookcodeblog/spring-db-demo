@@ -12,3 +12,5 @@ spring:
         trace: false # disable tracing output
   jpa:
     show-sql: true
+greeting:
+  message: "Wow, your favorite fruit is %s!"

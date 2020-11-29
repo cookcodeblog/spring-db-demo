@@ -1,6 +1,6 @@
 package cn.xdevops.spring.repository;
 
-import cn.xdevops.spring.entiy.Fruit;
+import cn.xdevops.spring.entity.Fruit;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

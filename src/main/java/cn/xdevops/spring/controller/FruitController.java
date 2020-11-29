@@ -1,6 +1,6 @@
 package cn.xdevops.spring.controller;
 
-import cn.xdevops.spring.dto.FruitDto;
+import cn.xdevops.spring.vo.FruitVo;
 import cn.xdevops.spring.service.FruitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,23 +16,23 @@ public class FruitController {
     private FruitService fruitService;
 
     @GetMapping
-    public List<FruitDto> getAll() {
+    public List<FruitVo> getAll() {
         return fruitService.fruitList();
     }
 
     @PostMapping
-    public FruitDto createFruit(@RequestBody(required = false) FruitDto fruitDto) {
-        return fruitService.save(fruitDto);
+    public FruitVo createFruit(@RequestBody(required = false) FruitVo fruitVo) {
+        return fruitService.save(fruitVo);
     }
 
     @GetMapping("/{id}")
-    public FruitDto getFruit(@PathVariable("id") Long id) {
+    public FruitVo getFruit(@PathVariable("id") Long id) {
         return fruitService.findById(id);
     }
 
     @PutMapping("/{id}")
-    public FruitDto updateFruit(@PathVariable("id") Long id, @RequestBody(required = false) FruitDto fruitDto) {
-        return fruitService.updateFruit(id, fruitDto);
+    public FruitVo updateFruit(@PathVariable("id") Long id, @RequestBody(required = false) FruitVo fruitVo) {
+        return fruitService.updateFruit(id, fruitVo);
     }
 
     @DeleteMapping("/{id}")

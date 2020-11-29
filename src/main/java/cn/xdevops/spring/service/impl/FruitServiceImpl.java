@@ -1,7 +1,7 @@
 package cn.xdevops.spring.service.impl;
 
-import cn.xdevops.spring.dto.FruitDto;
-import cn.xdevops.spring.entiy.Fruit;
+import cn.xdevops.spring.vo.FruitVo;
+import cn.xdevops.spring.entity.Fruit;
 import cn.xdevops.spring.repository.FruitRepository;
 import cn.xdevops.spring.service.FruitService;
 import org.modelmapper.ModelMapper;
@@ -22,26 +22,26 @@ public class FruitServiceImpl implements FruitService {
     private ModelMapper modelMapper;
 
     @Override
-    public List<FruitDto> fruitList() {
+    public List<FruitVo> fruitList() {
         return StreamSupport.stream(fruitRepository.findAll().spliterator(), false)
-                .map(x -> modelMapper.map(x, FruitDto.class))
+                .map(x -> modelMapper.map(x, FruitVo.class))
                 .collect(Collectors.toList());
     }
 
     @Override
-    public FruitDto save(FruitDto fruitDto) {
-        return modelMapper.map(fruitRepository.save(modelMapper.map(fruitDto, Fruit.class)), FruitDto.class);
+    public FruitVo save(FruitVo fruitVo) {
+        return modelMapper.map(fruitRepository.save(modelMapper.map(fruitVo, Fruit.class)), FruitVo.class);
     }
 
     @Override
-    public FruitDto findById(Long id) {
-        return fruitRepository.findById(id).map(x -> modelMapper.map(x, FruitDto.class)).orElse(null);
+    public FruitVo findById(Long id) {
+        return fruitRepository.findById(id).map(x -> modelMapper.map(x, FruitVo.class)).orElse(null);
     }
 
     @Override
-    public FruitDto updateFruit(long id, FruitDto fruitDto) {
-        fruitDto.setId(id);
-        return modelMapper.map(fruitRepository.save(modelMapper.map(fruitDto, Fruit.class)), FruitDto.class);
+    public FruitVo updateFruit(long id, FruitVo fruitVo) {
+        fruitVo.setId(id);
+        return modelMapper.map(fruitRepository.save(modelMapper.map(fruitVo, Fruit.class)), FruitVo.class);
     }
 
     @Override
