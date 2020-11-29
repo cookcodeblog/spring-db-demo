@@ -3,7 +3,5 @@ spring:
     name: spring-db-demo
   cloud:
     kubernetes:
-      config:
-        name: app-config
       reload:
         enabled: true
