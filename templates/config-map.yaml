@@ -1,0 +1,8 @@
+apiVersion: v1
+data:
+  app-config.yaml: |-
+    greeting:
+      message: "Cool, man, you like %s, really??"
+kind: ConfigMap
+metadata:
+  name: spring-db-demo

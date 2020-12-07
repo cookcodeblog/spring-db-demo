@@ -1,0 +1,21 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations: {}
+  labels:
+    app: spring-db-demo
+    app.kubernetes.io/component: spring-db-demo
+    app.kubernetes.io/instance: spring-db-demo
+    app.kubernetes.io/name: java
+    app.kubernetes.io/part-of: spring-db-demo-app
+    app.openshift.io/runtime: java
+    app.openshift.io/runtime-version: openjdk-8-el7
+  name: spring-db-demo
+spec:
+  port:
+    targetPort: 8080-tcp
+  to:
+    kind: Service
+    name: spring-db-demo
+    weight: 100
+  wildcardPolicy: None
